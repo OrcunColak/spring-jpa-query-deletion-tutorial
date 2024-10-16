@@ -11,5 +11,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Modifying(flushAutomatically=true)
     @Query(value="delete from Product pp where pp in (select p from Product p INNER JOIN Company c on p.company=c where p.description=?1)")
-    void deleteProductsByDescription(String desc);
+    void deleteProductsByDescription(String description);
 }
